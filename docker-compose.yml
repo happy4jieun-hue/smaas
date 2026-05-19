@@ -1,0 +1,13 @@
+version: "3.9"
+
+services:
+  # ── Smaas 애플리케이션 (FastAPI + SQLite) ─
+  app:
+    build: .
+    restart: unless-stopped
+    ports:
+      - "3000:3000"
+    env_file:
+      - .env
+    volumes:
+      - ./smaas.db:/app/smaas.db   # SQLite 파일 영속화
