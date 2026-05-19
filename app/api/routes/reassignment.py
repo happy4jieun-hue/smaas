@@ -34,8 +34,6 @@ from app.repositories.assignment_history_repository import AssignmentHistoryRepo
 from app.repositories.member_repository import MemberRepository
 from app.repositories.notification_repository import NotificationRepository
 from app.repositories.subtask_assignment_repository import SubtaskAssignmentRepository
-from app.agents.matcher_agent import _prefilter_members
-
 router = APIRouter()
 _asgn_repo    = SubtaskAssignmentRepository()
 _history_repo = AssignmentHistoryRepository()
@@ -220,7 +218,7 @@ async def rerun_matching(
     if not all_members:
         raise HTTPException(status_code=400, detail="재추천 가능한 멤버가 없습니다.")
 
-    top_members = _prefilter_members(all_members, [], top_k=5)
+    top_members = all_members[:5]
     profiles    = _member_repo.to_profiles(top_members)
 
     subtask_json = json.dumps(

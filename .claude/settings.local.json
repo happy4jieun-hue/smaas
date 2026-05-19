@@ -5,7 +5,11 @@
       "Bash(do)",
       "Bash(echo \"=== $f ===\")",
       "Read(//c/Users/hyunb/smaas/**)",
-      "Bash(done)"
+      "Bash(done)",
+      "mcp__plugin_slack_slack__slack_search_users",
+      "mcp__plugin_slack_slack__slack_send_message",
+      "mcp__plugin_Notion_notion__notion-search",
+      "mcp__plugin_Notion_notion__notion-update-page"
     ]
   }
 }

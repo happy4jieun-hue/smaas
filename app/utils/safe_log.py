@@ -88,9 +88,11 @@ class SafeLogFilter(logging.Filter):
             record.msg = safe_str(record.msg)
         if record.args:
             if isinstance(record.args, dict):
-                record.args = {k: safe_str(v) for k, v in record.args.items()}
+                record.args = {k: safe_str(v) if isinstance(v, str) else v
+                               for k, v in record.args.items()}
             elif isinstance(record.args, (tuple, list)):
-                record.args = tuple(safe_str(v) for v in record.args)
+                record.args = tuple(safe_str(v) if isinstance(v, str) else v
+                                    for v in record.args)
         return True
 
 
