@@ -2,7 +2,6 @@
 
 ## Project Overview
 
-이 프로젝트는 smaas 프로젝트입니다.
 Claude Code는 이 저장소에서 코드 분석, 기능 계획, 버그 수정, 코드 리뷰, 문서화를 보조합니다.
 
 ## Default Working Rules
