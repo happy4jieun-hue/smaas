@@ -26,33 +26,6 @@ Claude Code는 이 저장소에서 코드 분석, 기능 계획, 버그 수정, 
 - 수정 전에는 관련 파일을 먼저 확인합니다.
 - 기능 구현 시 프론트엔드, 백엔드, DB, UX, QA 영향 범위를 나누어 판단합니다.
 
-## Development Workflow
-
-1. 요구사항 이해
-2. 관련 파일 탐색
-3. 수정 계획 제안
-4. 사용자 승인
-5. 최소 범위 수정
-6. 변경사항 요약
-7. 테스트 방법 제안
-
-## Review Checklist
-
-- 기존 기능에 영향이 없는가
-- 불필요한 중복 코드가 생기지 않았는가
-- 보안 정보가 노출되지 않았는가
-- 에러 처리와 예외 상황이 고려되었는가
-- 테스트 또는 수동 확인 방법이 명확한가
-
-## Output Format
-
-작업 후에는 가능하면 다음 형식으로 정리합니다.
-
-1. 작업 요약
-2. 수정한 파일
-3. 변경 이유
-4. 테스트 방법
-5. 주의할 점
 
 ## Subagent Routing Rules
 
@@ -519,7 +492,7 @@ api response > service > store update > pages/composable render
 
 ---
 
-## Updated Development Workflow
+## Development Workflow
 
 기본 개발 흐름은 다음을 따릅니다.
 
@@ -538,7 +511,7 @@ api response > service > store update > pages/composable render
 
 ---
 
-## Updated Review Checklist
+## Review Checklist
 
 작업 전후로 다음을 확인합니다.
 
@@ -555,7 +528,7 @@ api response > service > store update > pages/composable render
 
 ---
 
-## Updated Output Format
+## Output Format
 
 작업 후에는 가능하면 다음 형식으로 정리합니다.
 
