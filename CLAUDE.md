@@ -81,6 +81,43 @@ Claude Code는 이 저장소에서 코드 분석, 기능 계획, 버그 수정, 
 - 화면 흐름, 라우팅, API 호출, 타입 영향 정리
 - 코드 수정 전 최소 변경 계획 제안
 
+#### frontend-implementer
+
+다음과 같은 요청이면 `frontend-implementer`를 사용합니다.
+
+- “프론트 수정해줘”
+- “화면 구현해줘”
+- “Vue 코드 고쳐줘”
+- “페이지 만들어줘”
+- “버튼 동작 구현해줘”
+- “프론트 API 연결해줘”
+- “Pinia store 수정해줘”
+- “라우터 추가해줘”
+- “프론트 쪽 바로 반영해줘”
+- “frontend-planner 계획대로 구현해줘”
+
+역할:
+
+- 승인된 프론트엔드 구현 계획을 실제 코드에 반영
+- Vue.js / TypeScript / Vite 코드 수정
+- pages, composable 또는 composables, service, api, store, ui, router 수정
+- Pinia store 상태 및 action 수정
+- Vue Router 라우팅 추가 또는 수정
+- 백엔드 API 요청/응답 연결
+- 최소 범위로 프론트엔드 코드 수정
+
+중요 규칙:
+
+- 기존 프론트엔드 구조를 유지합니다.
+- pages에서 직접 backend API를 호출하지 않습니다.
+- pages 또는 composable은 service를 호출합니다.
+- service는 api를 호출합니다.
+- service는 필요한 경우 store 상태 변경 로직을 호출합니다.
+- 전역 store 상태 변수는 `g_` prefix를 사용합니다.
+- 공통 UI 요소는 `ui/`에 둡니다.
+- 관련 없는 UI 리팩토링을 하지 않습니다.
+- 수정 후 변경 파일과 테스트 방법을 정리합니다.
+
 #### backend-planner
 
 다음과 같은 요청이면 `backend-planner`를 사용합니다.
@@ -101,6 +138,46 @@ Claude Code는 이 저장소에서 코드 분석, 기능 계획, 버그 수정, 
 - FastAPI 라우터 구조 확인
 - validation, error handling 영향 확인
 - 코드 수정 전 최소 변경 계획 제안
+
+#### backend-implementer
+
+다음과 같은 요청이면 `backend-implementer`를 사용합니다.
+
+- “백엔드 수정해줘”
+- “API 구현해줘”
+- “FastAPI 코드 고쳐줘”
+- “엔드포인트 추가해줘”
+- “service 로직 구현해줘”
+- “query 로직 추가해줘”
+- “DB 연결 로직 수정해줘”
+- “요청/응답 schema 추가해줘”
+- “backend-planner 계획대로 구현해줘”
+
+역할:
+
+- 승인된 백엔드 구현 계획을 실제 코드에 반영
+- FastAPI router 추가 또는 수정
+- service logic 추가 또는 수정
+- query logic 추가 또는 수정
+- request/response schema 수정
+- DB model 관련 코드 수정
+- validation, error handling 반영
+- 최소 범위로 백엔드 코드 수정
+
+중요 규칙:
+
+- 백엔드는 class 기반이 아닌 module 기반 코드 스타일을 따릅니다.
+- 백엔드 흐름은 `api > service > query` 순서를 지킵니다.
+- API layer에서 query를 직접 호출하지 않습니다.
+- API layer는 service를 호출합니다.
+- service layer는 query를 호출합니다.
+- API router는 `api/역할명/역할명_api.py`에 작성합니다.
+- schema와 DB model은 `api/역할명/역할명_model.py`에 작성합니다.
+- service logic은 `service/역할명/역할명_service.py`에 작성합니다.
+- DB query logic은 `service/역할명/역할명_query.py`에 작성합니다.
+- `core/`에는 DB 연결, session, httpx, config 등 공통 설정만 둡니다.
+- DB schema 변경이 필요하면 migration 필요 여부를 반드시 언급합니다.
+- 수정 후 변경 파일과 테스트 방법을 정리합니다.
 
 #### db-reviewer
 
